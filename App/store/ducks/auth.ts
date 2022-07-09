@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface UserState {
+interface AuthState {
+  isLoggedIn: boolean;
   access: {
     token: string;
     refresh_token: string;
@@ -13,7 +14,8 @@ interface UserState {
   };
 }
 
-const initialState: UserState = {
+const initialState: AuthState = {
+  isLoggedIn: false,
   access: {
     token: "",
     refresh_token: "",
@@ -26,15 +28,19 @@ const initialState: UserState = {
   },
 };
 
-const userSlice = createSlice({
+const AuthSlice = createSlice({
   name: "login",
   initialState,
   reducers: {
-    test: (state: UserState, action: PayloadAction<string>) => {
-      console.log(state, action);
+    logIn: (state: AuthState, action: PayloadAction<AuthState>) => {
+      state = action.payload;
+      state.isLoggedIn = true;
+    },
+    logOut: (state: AuthState) => {
+      state = initialState;
     },
   },
 });
 
-export const { test } = userSlice.actions;
-export default userSlice.reducer;
+export const authActions = AuthSlice.actions;
+export const authReducer = AuthSlice.reducer;
