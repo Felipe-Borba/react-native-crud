@@ -6,10 +6,10 @@ import * as React from "react";
 import { Pressable } from "react-native";
 
 import ModalScreen from "../screens/ModalScreen";
-import NotFoundScreen from "../screens/NotFoundScreen";
+import Sigin from "../screens/Signin";
+import { SignUp } from "../screens/Signup";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
-import LinkingConfiguration from "./LinkingConfiguration";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -18,7 +18,7 @@ import {
 
 export default function Navigation() {
   return (
-    <NavigationContainer linking={LinkingConfiguration}>
+    <NavigationContainer>
       <RootNavigator />
     </NavigationContainer>
   );
@@ -34,18 +34,21 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="Signin"
+        component={Sigin}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={SignUp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="NotFound"
-        component={NotFoundScreen}
-        options={{ title: "Oops!" }}
-      />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
+      <Stack.Screen name="Modal" component={ModalScreen} />
     </Stack.Navigator>
   );
 }
@@ -65,7 +68,7 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Tab One",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={30} name="code" color={color} />
+            <FontAwesome size={30} name="music" color={color} />
           ),
           headerRight: () => (
             <Pressable

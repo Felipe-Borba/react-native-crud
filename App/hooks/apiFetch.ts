@@ -27,7 +27,7 @@ export namespace auth {
     return atom6Api.post<AuthResponse | ErrorResponse>("/auth/signup", body);
   }
 
-  type SignInRequest = { username: string; email: string; password: string };
+  type SignInRequest = { username: string; password: string };
   export async function signIn(body: SignInRequest) {
     const response = await atom6Api.post<AuthResponse | ErrorResponse>(
       "/auth/sigin",

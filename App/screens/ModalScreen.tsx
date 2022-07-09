@@ -1,16 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 
 import { View } from "../components/View";
 import { Text } from "../components/Text";
 
 export default function ModalScreen() {
   return (
-    <View >
+    <View>
       <Text>Modal</Text>
       <View />
-
-      <StatusBar />
     </View>
   );
 }
-
