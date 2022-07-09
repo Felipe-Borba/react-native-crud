@@ -1,13 +1,6 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
 import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  NavigationContainer
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { Pressable } from "react-native";
@@ -20,7 +13,7 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import {
   RootStackParamList,
   RootTabParamList,
-  RootTabScreenProps
+  RootTabScreenProps,
 } from "./types";
 
 export default function Navigation() {
@@ -71,7 +64,9 @@ function BottomTabNavigator() {
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={30} name="code" color={color} />
+          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
@@ -82,7 +77,7 @@ function BottomTabNavigator() {
               <FontAwesome
                 name="info-circle"
                 size={25}
-                color={'#000'}
+                color={"#000"}
                 style={{ marginRight: 15 }}
               />
             </Pressable>
@@ -94,19 +89,11 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={30} name="code" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
   );
-}
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }

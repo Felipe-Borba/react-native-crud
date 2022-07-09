@@ -2,14 +2,12 @@ import { useState } from "react";
 import { Pressable, TextInput } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Text, View } from "../components/Themed";
-import { RootTabScreenProps } from "../navigation/types";
+import { Text } from "../components/Text";
+import { View } from "../components/View";
 import { RootState } from "../store";
 import { decrement, increment, incrementByAmount } from "../store/ducks/counter";
 
-export default function TabOneScreen({
-  navigation,
-}: RootTabScreenProps<"TabOne">) {
+export default function TabOneScreen() {
   const [counterNumber, setCounterNumber] = useState('');
   const counter = useSelector((state: RootState) => state.counter);
   const dispatch = useDispatch()
@@ -31,8 +29,6 @@ export default function TabOneScreen({
       <Pressable onPress={handleIncrementAmount}>
         <Text>Add</Text>
       </Pressable>
-
-      <View/>
     </View>
   );
 }

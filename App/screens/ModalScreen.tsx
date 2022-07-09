@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 
-import { Text, View } from '../components/Themed';
+import { View } from "../components/View";
+import { Text } from "../components/Text";
 
 export default function ModalScreen() {
   return (
