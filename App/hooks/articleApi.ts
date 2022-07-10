@@ -2,7 +2,7 @@ import axios from "axios";
 import utils from "./utils";
 
 export namespace articleApi {
-  interface ArticleResponse {
+  export interface ArticleResponse {
     id: string;
     title: string;
     description: string;
@@ -19,6 +19,13 @@ export namespace articleApi {
   export async function create(body: CreateArticleRequest) {
     return axios
       .post<ArticleResponse>("/article/create", body)
+      .then((response) => response.data)
+      .catch(utils.handlePromiseError());
+  }
+
+  export async function list() {
+    return axios
+      .get<ArticleResponse[]>("/article/all")
       .then((response) => response.data)
       .catch(utils.handlePromiseError());
   }

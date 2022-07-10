@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreateArticle from "../screens/CreateArticle";
-import TabOneScreen from "../screens/TabOneScreen";
+import ListArticle from "../screens/ListArticle";
 
 export type ArticleStackParamsList = {
   ListArticles: undefined;
@@ -15,7 +15,7 @@ export function ArticleNavigator() {
     <ArticleStack.Navigator>
       <ArticleStack.Screen
         name="ListArticles"
-        component={TabOneScreen}
+        component={ListArticle}
         options={{
           title: "Artigos",
         }}

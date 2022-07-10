@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { articleApi } from "../../hooks/articleApi";
 
-interface Article {
+export interface Article {
   id: string;
   title: string;
   description: string;
@@ -16,6 +17,16 @@ const initialState: ArticleState = {
   list: [],
 };
 
+const fetchAllArticles = createAsyncThunk(
+  'article/fetchByIdStatus',
+  async (thunkAPI) => {
+    const response = await articleApi.list()
+    if(response) {
+      return response
+    }
+  }
+)
+
 const ArticleSlice = createSlice({
   name: "login",
   initialState,
@@ -29,7 +40,14 @@ const ArticleSlice = createSlice({
       );
     },
   },
+  extraReducers(builder) {
+    builder.addCase(fetchAllArticles.fulfilled, (state, action) => {
+      if(action.payload){
+        state.list = action.payload
+      }
+    })
+  },
 });
 
-export const ArticleActions = ArticleSlice.actions;
+export const ArticleActions = {...ArticleSlice.actions, fetchAllArticles};
 export const ArticleReducer = ArticleSlice.reducer;

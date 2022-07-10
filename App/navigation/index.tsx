@@ -3,17 +3,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { Pressable } from "react-native";
 
 import Sigin from "../screens/Signin";
 import { SignUp } from "../screens/Signup";
-import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import { ArticleNavigator } from "./ArticleNavigator";
 import {
   RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps,
+  RootTabParamList
 } from "./types";
 
 export default function Navigation() {
