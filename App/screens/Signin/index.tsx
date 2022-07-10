@@ -19,9 +19,8 @@ export default function Sigin() {
   async function handleSubmit() {
     const response = await authApi.signIn({ username, password });
 
-    if (response.status <= 201) {
-      const data = response.data as authApi.AuthResponse
-      dispatch(authActions.logIn({ ...data, isLoggedIn:true }));
+    if (response) {
+      dispatch(authActions.logIn({ ...response, isLoggedIn: true }));
       navigation.navigate("Root")
     }
   }
