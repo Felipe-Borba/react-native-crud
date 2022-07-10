@@ -1,4 +1,4 @@
-import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -6,7 +6,6 @@ import * as React from "react";
 
 import Sigin from "../screens/Signin";
 import { SignUp } from "../screens/Signup";
-import TabTwoScreen from "../screens/TabTwoScreen";
 import { ArticleNavigator } from "./ArticleNavigator";
 import {
   RootStackParamList,
@@ -66,17 +65,6 @@ function BottomTabNavigator() {
           tabBarLabel: "Artigos",
           tabBarIcon: () => (
             <MaterialIcons name="article" size={30} color="black" />
-          ),
-        }}
-      />
-
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
-        options={{
-          title: "Tab Two",
-          tabBarIcon: () => (
-            <FontAwesome size={30} name="code" color={"black"} />
           ),
         }}
       />

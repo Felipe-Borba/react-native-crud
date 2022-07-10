@@ -20,7 +20,6 @@ export type RootStackParamList = {
 
 export type RootTabParamList = {
   Articles: NavigatorScreenParams<ArticleStackParamsList> | undefined;
-  TabTwo: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
