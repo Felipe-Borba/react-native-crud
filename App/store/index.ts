@@ -5,7 +5,7 @@ import counterReducer from "./ducks/counter";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    counter: counterReducer
+    counter: counterReducer,
   },
 });
 
