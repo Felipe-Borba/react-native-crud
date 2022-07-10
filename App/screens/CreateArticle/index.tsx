@@ -1,15 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components/native";
 import { Button } from "../../components/Button";
 import { InputText } from "../../components/InputText";
 import { KeyboardAvoidingView } from "../../components/KeyboardAvoidView";
-import { Text } from "../../components/Text";
 import { TextInput } from "../../components/TextInput";
 import { articleApi } from "../../hooks/articleApi";
-import { ArticleStackParamsList, ArticleStackScreenProps } from "../../navigation/articleNavigator";
+import { ArticleStackScreenProps } from "../../navigation/articleNavigator";
 import { ArticleActions } from "../../store/ducks/article";
 
 export default function CreateArticle() {

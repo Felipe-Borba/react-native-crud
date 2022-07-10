@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { Image } from "react-native";
 import { useDispatch } from "react-redux";
@@ -8,8 +7,7 @@ import styled from "styled-components/native";
 import { Text } from "../../components/Text";
 import { View } from "../../components/View";
 import { articleApi } from "../../hooks/articleApi";
-import { ArticleStackParamsList, ArticleStackScreenProps } from "../../navigation/ArticleNavigator";
-import { RootTabScreenProps } from "../../navigation/types";
+import { ArticleStackScreenProps } from "../../navigation/ArticleNavigator";
 import { Article, ArticleActions } from "../../store/ducks/article";
 
 type ArticleCardProps = {

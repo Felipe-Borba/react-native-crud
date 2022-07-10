@@ -1,10 +1,9 @@
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator, NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { Pressable, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import CreateArticle from "../screens/CreateArticle";
 import ListArticle from "../screens/ListArticle";
 import { RootTabScreenProps } from "./types";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export type ArticleStackParamsList = {
   ListArticles: undefined;
