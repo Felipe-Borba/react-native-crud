@@ -28,6 +28,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
       <Content
         onPress={() => {
+          dispatch(ArticleActions.selectArticle(article.id));
           navigation.navigate("ViewArticle");
         }}
       >

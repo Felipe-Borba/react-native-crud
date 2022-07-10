@@ -35,4 +35,16 @@ export namespace articleApi {
     .then((response) => response.data)
     .catch(utils.handlePromiseError());
   }
+
+  interface UpdateRequest {
+    title: string;
+    description: string;
+    body: string;
+  }
+  export async function update(id: string, body:UpdateRequest) {
+    return axios
+      .put<ArticleResponse>(`/article/update/${id}`, body)
+      .then((response) => response.data)
+      .catch(utils.handlePromiseError());
+  }
 }

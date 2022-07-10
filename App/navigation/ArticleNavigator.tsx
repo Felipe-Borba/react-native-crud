@@ -3,6 +3,7 @@ import { createNativeStackNavigator, NativeStackNavigationProp } from "@react-na
 import { TouchableOpacity } from "react-native";
 import CreateArticle from "../screens/CreateArticle";
 import ListArticle from "../screens/ListArticle";
+import ViewArticle from "../screens/ViewArticle";
 import { RootTabScreenProps } from "./types";
 
 export type ArticleStackParamsList = {
@@ -39,6 +40,14 @@ export function ArticleNavigator() {
         component={CreateArticle}
         options={{
           title: "Novo Artigo",
+        }}
+      />
+
+      <ArticleStack.Screen
+        name="ViewArticle"
+        component={ViewArticle}
+        options={{
+          title: "Artigo",
         }}
       />
     </ArticleStack.Navigator>

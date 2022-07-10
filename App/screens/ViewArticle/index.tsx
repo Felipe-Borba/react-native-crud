@@ -1,29 +1,44 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Button } from "../../components/Button";
 import { InputText } from "../../components/InputText";
 import { KeyboardAvoidingView } from "../../components/KeyboardAvoidView";
+import { TextArea } from "../../components/TextArea";
 import { TextInput } from "../../components/TextInput";
 import { View } from "../../components/View";
 import { articleApi } from "../../hooks/articleApi";
-import { ArticleStackScreenProps } from "../../navigation/articleNavigator";
+import { ArticleStackScreenProps } from "../../navigation/ArticleNavigator";
+import { RootState } from "../../store";
 import { ArticleActions } from "../../store/ducks/article";
-import { TextArea } from "../../components/TextArea";
 
-export default function CreateArticle() {
-  const navigation = useNavigation<ArticleStackScreenProps<"NewArticle">>();
+export default function ViewArticle() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [body, setBody] = useState("");
+  const navigation = useNavigation<ArticleStackScreenProps<"ViewArticle">>();
+  const articleState = useSelector((state: RootState) => state.article);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const selected = articleState.list.find(
+      (article) => article.id === articleState.selected
+    );
+    setTitle(selected?.title || "");
+    setDescription(selected?.description || "");
+    setBody(selected?.body || "");
+  }, []);
+
   async function handleSubmit() {
-    const response = await articleApi.create({ body, description, title });
-    if(response) {
-      dispatch(ArticleActions.addArticle(response))
-      navigation.navigate("ListArticles")
-    }
+    await articleApi.update(articleState.selected, {
+      body,
+      description,
+      title,
+    });
+    dispatch(ArticleActions.fetchAllArticles() as any);
+    navigation.navigate("ListArticles");
   }
 
   return (
@@ -52,7 +67,7 @@ export default function CreateArticle() {
           onChangeText={setBody}
         />
 
-        <Button text="Enviar" onPress={handleSubmit} />
+        <Button text="Atualizar" onPress={handleSubmit} />
       </KeyboardAvoidingView>
     </View>
   );
