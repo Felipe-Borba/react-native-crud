@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components/native";
 import { articleApi } from "../../hooks/articleApi";
 import { ArticleStackScreenProps } from "../../navigation/ArticleNavigator";
-import { Article, ArticleActions } from "../../store/ducks/article";
+import { Article, articleActions } from "../../store/ducks/article";
 
 type ArticleCardProps = {
   article: Article;
@@ -19,7 +19,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     <Container>
       <Icon
         onPress={() => {
-          dispatch(ArticleActions.removeArticle(article.id));
+          dispatch(articleActions.removeArticle(article.id));
           articleApi.remove(article.id);
         }}
       >
@@ -28,7 +28,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
       <Content
         onPress={() => {
-          dispatch(ArticleActions.selectArticle(article.id));
+          dispatch(articleActions.selectArticle(article.id));
           navigation.navigate("ViewArticle");
         }}
       >

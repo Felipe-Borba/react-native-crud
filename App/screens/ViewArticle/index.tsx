@@ -12,7 +12,7 @@ import { View } from "../../components/View";
 import { articleApi } from "../../hooks/articleApi";
 import { ArticleStackScreenProps } from "../../navigation/ArticleNavigator";
 import { RootState } from "../../store";
-import { ArticleActions } from "../../store/ducks/article";
+import { articleActions } from "../../store/ducks/article";
 
 export default function ViewArticle() {
   const [title, setTitle] = useState("");
@@ -37,7 +37,7 @@ export default function ViewArticle() {
       description,
       title,
     });
-    dispatch(ArticleActions.fetchAllArticles() as any);
+    dispatch(articleActions.fetchAllArticles() as any);
     navigation.navigate("ListArticles");
   }
 

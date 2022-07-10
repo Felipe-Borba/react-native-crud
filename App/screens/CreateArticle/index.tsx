@@ -8,7 +8,7 @@ import { TextInput } from "../../components/TextInput";
 import { View } from "../../components/View";
 import { articleApi } from "../../hooks/articleApi";
 import { ArticleStackScreenProps } from "../../navigation/articleNavigator";
-import { ArticleActions } from "../../store/ducks/article";
+import { articleActions } from "../../store/ducks/article";
 import { TextArea } from "../../components/TextArea";
 
 export default function CreateArticle() {
@@ -21,7 +21,7 @@ export default function CreateArticle() {
   async function handleSubmit() {
     const response = await articleApi.create({ body, description, title });
     if(response) {
-      dispatch(ArticleActions.addArticle(response))
+      dispatch(articleActions.addArticle(response))
       navigation.navigate("ListArticles")
     }
   }

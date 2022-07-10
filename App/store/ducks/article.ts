@@ -54,5 +54,5 @@ const ArticleSlice = createSlice({
   },
 });
 
-export const ArticleActions = { ...ArticleSlice.actions, fetchAllArticles }; //rename
-export const ArticleReducer = ArticleSlice.reducer;
+export const articleActions = { ...ArticleSlice.actions, fetchAllArticles };
+export const articleReducer = ArticleSlice.reducer;

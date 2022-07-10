@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/native";
 import { RootState } from "../../store";
-import { ArticleActions } from "../../store/ducks/article";
+import { articleActions } from "../../store/ducks/article";
 import ArticleCard from "./ArticleCard";
 
 export default function ListArticle() {
@@ -10,7 +10,7 @@ export default function ListArticle() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ArticleActions.fetchAllArticles() as any);
+    dispatch(articleActions.fetchAllArticles() as any);
   }, []);
 
   return (
