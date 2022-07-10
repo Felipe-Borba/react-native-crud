@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { ScrollView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components/native";
 import { View } from "../../components/View";
 import { RootState } from "../../store";
 import { ArticleActions } from "../../store/ducks/article";

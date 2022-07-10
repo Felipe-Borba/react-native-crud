@@ -6,6 +6,7 @@ import { Button } from "../../components/Button";
 import { InputText } from "../../components/InputText";
 import { KeyboardAvoidingView } from "../../components/KeyboardAvoidView";
 import { TextInput } from "../../components/TextInput";
+import { View } from "../../components/View";
 import { articleApi } from "../../hooks/articleApi";
 import { ArticleStackScreenProps } from "../../navigation/articleNavigator";
 import { ArticleActions } from "../../store/ducks/article";
@@ -57,12 +58,6 @@ export default function CreateArticle() {
   );
 }
 
-const View = styled.View`
-  flex: 1;
-  padding: 5%;
-
-  background-color: ${({ theme }) => theme.color.SECONDARY};
-`;
 
 const TextArea = styled.TextInput`
   height: 90px;
