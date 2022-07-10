@@ -6,7 +6,7 @@ import { Button } from "../../components/Button";
 import { InputText } from "../../components/InputText";
 import { TextInput } from "../../components/TextInput";
 import { View } from "../../components/View";
-import { authApi } from "../../hooks/apiFetch";
+import { authApi } from "../../hooks/authApi";
 import { authActions } from "../../store/ducks/auth";
 
 export function SignUp() {
