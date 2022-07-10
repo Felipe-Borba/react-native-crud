@@ -15,7 +15,9 @@ export function Button({ onPress, text }: ButtonProps) {
 }
 
 const Btn = styled.TouchableOpacity`
-  padding: 9px;
+  padding: 9px 25px;
+  width: 100%;
+  align-items: center;
 
   background-color: ${({theme}) => theme.color.PRIMARY};
   border: 1px solid;
@@ -27,4 +29,5 @@ const Text = styled.Text`
   font-family: ${({ theme }) => theme.font.regular};
   font-size: 19px;
   font-weight: bold;
+  color: ${({ theme }) => theme.color.BACKGROUND_200};
 `;
