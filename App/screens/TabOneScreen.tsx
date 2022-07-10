@@ -39,7 +39,7 @@ export default function TabOneScreen() {
         <Text>Add</Text>
       </Pressable>
 
-      <Button text="teste" onPress={() => navigate.navigate("NewArticle")} />
+      <Button text="Novo Artigo" onPress={() => navigate.navigate("NewArticle")} />
     </View>
   );
 }
