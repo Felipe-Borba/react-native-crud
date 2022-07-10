@@ -10,22 +10,24 @@ export interface Article {
 }
 
 interface ArticleState {
+  selected: string;
   list: Article[];
 }
 
 const initialState: ArticleState = {
+  selected: "",
   list: [],
 };
 
 const fetchAllArticles = createAsyncThunk(
-  'article/fetchByIdStatus',
+  "article/fetchByIdStatus",
   async (thunkAPI) => {
-    const response = await articleApi.list()
-    if(response) {
-      return response
+    const response = await articleApi.list();
+    if (response) {
+      return response;
     }
   }
-)
+);
 
 const ArticleSlice = createSlice({
   name: "login",
@@ -39,15 +41,18 @@ const ArticleSlice = createSlice({
         (article) => article.id !== action.payload
       );
     },
+    selectArticle: (state: ArticleState, action: PayloadAction<string>) => {
+      state.selected = action.payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchAllArticles.fulfilled, (state, action) => {
-      if(action.payload){
-        state.list = action.payload
+      if (action.payload) {
+        state.list = action.payload;
       }
-    })
+    });
   },
 });
 
-export const ArticleActions = {...ArticleSlice.actions, fetchAllArticles};
+export const ArticleActions = { ...ArticleSlice.actions, fetchAllArticles }; //rename
 export const ArticleReducer = ArticleSlice.reducer;
