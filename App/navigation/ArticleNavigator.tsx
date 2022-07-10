@@ -1,4 +1,4 @@
-import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { Entypo, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator, NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import CreateArticle from "../screens/CreateArticle";
@@ -28,12 +28,7 @@ export function ArticleNavigator() {
           ),
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate("NewArticle")}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={"#000"}
-                style={{ marginRight: 15 }}
-              />
+              <Entypo name="new-message" size={24} color="black" />
             </TouchableOpacity>
           ),
         })}
