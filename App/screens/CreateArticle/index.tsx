@@ -9,12 +9,11 @@ import { KeyboardAvoidingView } from "../../components/KeyboardAvoidView";
 import { Text } from "../../components/Text";
 import { TextInput } from "../../components/TextInput";
 import { articleApi } from "../../hooks/articleApi";
-import { ArticleStackParamsList } from "../../navigation/articleNavigator";
+import { ArticleStackParamsList, ArticleStackScreenProps } from "../../navigation/articleNavigator";
 import { ArticleActions } from "../../store/ducks/article";
 
 export default function CreateArticle() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<ArticleStackParamsList>>();
+  const navigation = useNavigation<ArticleStackScreenProps<"NewArticle">>();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [body, setBody] = useState("");

@@ -64,7 +64,7 @@ function BottomTabNavigator() {
         options={{
           headerShown: false,
           tabBarLabel: "Artigos",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: () => (
             <MaterialIcons name="article" size={30} color="black" />
           ),
         }}
@@ -75,8 +75,8 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: "Tab Two",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={30} name="code" color={color} />
+          tabBarIcon: () => (
+            <FontAwesome size={30} name="code" color={"black"} />
           ),
         }}
       />
