@@ -29,4 +29,10 @@ export namespace articleApi {
       .then((response) => response.data)
       .catch(utils.handlePromiseError());
   }
+
+  export async function remove(id:string) {
+    return axios.delete("/article/delete/"+id)
+    .then((response) => response.data)
+    .catch(utils.handlePromiseError());
+  }
 }

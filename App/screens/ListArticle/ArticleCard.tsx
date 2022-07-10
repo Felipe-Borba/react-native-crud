@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components/native";
 import { Text } from "../../components/Text";
 import { View } from "../../components/View";
+import { articleApi } from "../../hooks/articleApi";
 import { Article, ArticleActions } from "../../store/ducks/article";
 
 type ArticleCardProps = {
@@ -29,7 +30,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       <Touchable
         onPress={() => {
           dispatch(ArticleActions.removeArticle(article.id));
-          //TODO call delete route
+          articleApi.remove(article.id)
         }}
       >
         <Ionicons name="trash-bin" size={30} color="black" />
