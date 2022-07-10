@@ -64,7 +64,8 @@ const Image = styled.Image`
   height: 210px;
 
   border-radius: 15px;
-  border: 3px solid ${({ theme }) => theme.color.BACKGROUND_400};
+  border-color: ${({ theme }) => theme.color.BACKGROUND_400};
+  border-width: 3px;
 `;
 
 const Icon = styled.TouchableOpacity`
